@@ -1,0 +1,92 @@
+PREFIX ego: <https://w3id.org/idn/def/ego/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdo: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+ego:QualifiedGeometry
+    a owl:Class ;
+.
+
+ego:asNarrative
+	a owl:DatatypeProperty ;
+	rdfs:subPropertyOf geo:hasSerialization ;
+	rdfs:domain geo:Geometry ;
+	rdfs:range [
+	    a owl:Class ;
+	    owl:unionOf (
+            xsd:string
+            rdf:langString
+        ) ;
+    ] ;
+	rdfs:isDefinedBy <https://w3id.org/idn/def/ego> ;
+	skos:definition "A narrative description of a Geometry"@en ;
+	skos:prefLabel "as narrative"@en ;
+	skos:example """PREFIX ego: <https://w3id.org/idn/def/ego/>
+PREFIX ex: <http://example.com/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX sdo: <https://schema.org/>
+
+ex:moreton-island
+    a geo:Feature ;
+    geo:hasGeometry [
+        a geo:Geometry ;
+        ego:asNarrative '''On the eastern side of Moreton Bay on the coast of South East Queensland, Australia with the Coral Sea on the east coast of the island. Moreton Island lies 58 kilometres (36 mi) northeast of the Queensland capital, Brisbane.'''@en ;
+    ] ;
+    sdo:name "Moreton Island"@en ;
+    sdo:alternateName "Mulgumpin" ;
+.
+	""" ;
+	skos:usageNote "Use this property to indicate a descriptive/discursive geometry for a Feature that cannot be represented using direc spatial representations"@en ;
+.
+
+ego:hasQualifiedGeometry
+	a owl:ObjectProperty ;
+	rdfs:domain geo:Feature ;
+	rdfs:range ego:QualifiedGeometry ;
+	rdfs:isDefinedBy <https://w3id.org/idn/def/ego> ;
+	skos:definition "A spatial representation for a given Feature with role or other qualifiers."@en ;
+	skos:prefLabel "has qualified geometry"@en ;
+	skos:example """PREFIX ego: <https://w3id.org/idn/def/ego/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX geoxgr: <http://example.com/geosparql1.3extension/GeometryRoles/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdo: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+<http://example.com/feature/nicks-wagga>
+    a geo:Feature ;
+    ego:hasQualifiedGeometry
+        [
+            a ego:QualifiedGeometry ;
+            ego:confidence 0.95 ;
+            ego:hasGeometryRole geoxgr:BoundaryEstimate ;
+            geo:hasGeometry [
+                a geo:Geometry ;
+                geo:asWKT "POLYGON ((153.5777633 -28.1539109, 153.2042281 -27.2590735, 153.2042281 -26.4160277, 152.8526656 -26.632287, 152.6549117 -27.5321912, 152.6549117 -28.2120139, 153.2042281 -28.328125, 153.5777633 -28.1539109))"^^geo:asWKT ;
+            ] ;
+            rdfs:comment "Nick is 95% confident that this boundary estimate covers the area conventionally known as Wagga Wagga"@en ;
+        ] ;
+.""" ;
+	skos:usageNote "Use this property for a Feature, instead of geo:hasGeometry directly, to indicate a Geometry that is qualified in its scope with role or other properties"@en ;
+.
+
+
+
+
+
+ego:confidence
+	a owl:DatatypeProperty ;
+.
+
+ego:evidence
+	a owl:DatatypeProperty ;
+.
+
+ego:hasGeometryRole
+	a owl:ObjectProperty ;
+.

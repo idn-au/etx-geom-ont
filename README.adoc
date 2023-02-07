@@ -1,0 +1,29 @@
+= Extended Geometries Ontology
+
+This repository contains an ontology that extends the geometry representation Knowledge Graph elements used by https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html[GeoSPARQL 1.1] to cater for narrations of location and imprecise, "fuzzy" locations.
+
+The persistent identifier for this ontology that should be used to access it is:
+
+* **https://w3id.org/idn/def/ego**
+
+This ontology has been made to cater for the geometries of interest to Australian indigenous people that are not sensible to represent with point, polygons etc. however the representation modes here are not indigenous _per se_ and are expected to be widely applicable.
+
+== License & Rights
+
+The contents of this repository is licensed under Creative Commons 4.0 International. See the LICENSE file in the repository for details.
+
+All content is &copy; Indigenous Data Network, 2023
+
+== Contacts
+
+Initial technical development of this work is being undertaken by the following, for the Indigenous Data Network:
+
+**Nicholas J. Car** +
+*Data Architect* +
+https://kurrawong.net[Kurrawong AI] +
+nick@kurrawong.net  
+
+**Sandra Silcot** +
+*Analyst* +
+University of Melbourne +
+Indigenous Data Network +
