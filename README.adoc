@@ -1,6 +1,6 @@
 = Extended Geometries Ontology
 
-This repository contains an ontology that extends the geometry representation Knowledge Graph elements used by https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html[GeoSPARQL 1.1] to cater for narrations of location and imprecise, "fuzzy" locations.
+This repository contains an ontology that extends the geometry representation Knowledge Graph elements used by https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html[GeoSPARQL 1.1] to cater for narrations of location and qualified geometries. Collections of qualified geometries allow for modelling options such as "fuzzy" geometries.
 
 The persistent identifier for this ontology that should be used to access it is:
 

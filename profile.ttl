@@ -1,0 +1,78 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX role: <http://www.w3.org/ns/dx/prof/role/>
+PREFIX sdo: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+<http://w3id.org/idn/def/ego/profile>
+    a owl:Ontology , prof:Profile ;
+    dcterms:provenance "This profile of DCAT was made within the IDN's ID Catalogue project 2021 - 2022."@en ;
+    owl:versionIRI <http://w3id.org/idn/def/ego/0.0.1> ;
+    owl:versionInfo "0.0.1" ;
+    sdo:codeRespository "https://github.com/idn-au/idn-catalogue-profile/"^^xsd:anyURI ;
+    sdo:copyrightHolder <https://linked.data.gov.au/org/idn> ;
+    sdo:copyrightNotice "(c) Indigenous Data Network, 2022" ;
+    sdo:copyrightYear "2022"^^xsd:gYear ;
+    sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
+    sdo:dateCreated "2023-02-07"^^xsd:date ;
+    sdo:dateIssued "2022-02-08"^^xsd:date ;
+    sdo:dateModified "2022-02-08"^^xsd:date ;
+    sdo:description "A profile of cataloguing, provenance and vocabulary standards designed for the representation of indigenous data governance"@en ;
+    sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
+    sdo:name "Extended Geometries Profile"@en ;
+    sdo:publisher <https://linked.data.gov.au/org/idn> ;
+    prof:hasResource 
+    # [
+    #     rdfs:label "SHACL Validator" ;
+    #     prof:hasArtifact <https://w3id.org/idn/def/ego/validator> ;
+    #     dcterms:format "text/turtle" ;
+    #     prof:hasRole role:validation ;
+    # ],
+    [
+        rdfs:label "Ontology" ;
+        rdfs:comment """An ontology that extends the geometry representation Knowledge Graph elements used by GeoSPARQL 1.1 (https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html) to cater for narrations of location and qualified geometries. Collections of qualified geometries allow for modelling options such as "fuzzy" geometries."""@en ;
+        prof:hasArtifact <https://w3id.org/idn/def/ego> ;
+        dcterms:format "text/turtle" ;
+        prof:hasRole role:schema ;
+    ],
+    [
+        rdfs:label "Ontology Documentation" ;
+        rdfs:comment """Documentation for the ontology in HTML, web page, form."""@en ;
+        prof:hasArtifact <https://w3id.org/idn/def/ego.html> ;
+        dcterms:format "text/html" ;
+        prof:hasRole role:guidance ;
+    ],
+    [
+        rdfs:label "Code Repository" ;
+        rdfs:comment "An online Git version control repository that contains most of this Profile's content in files" ;
+        prof:hasArtifact <https://w3id.org/idn/def/ego/repo> ;
+        prof:hasRole role:repository ;
+    ] ;
+    prof:isProfileOf <http://www.opengis.net/ont/geosparql> ;
+.
+
+<https://orcid.org/0000-0002-8742-7730>
+    a sdo:Person ;
+    sdo:name "Nicholas J. Car"@en ;
+    sdo:email "nick@kurrawong.net"^^xsd:anyURI ;
+    sdo:affiliation <https://kurrawong.net> ;
+.
+
+<https://kurrawong.net>
+    a sdo:Organization ;
+    sdo:name "Kurrawong AI" ;
+    sdo:description "Kurrawong AI is a small, Artificial Intelligence, company in Australia specialising in Knowledge Graphs." ;
+    sdo:url "https://kurrawong.net"^^xsd:anyURI ;
+.
+
+<https://linked.data.gov.au/org/idn>
+    a sdo:Organization ;
+    sdo:name "Indigenous Data Network" ;
+    sdo:description "The IDN is within the University of Melbourne. It was established in 2018 to support and coordinate the governance of Indigenous data for Aboriginal and Torres Strait Islander peoples and empower Aboriginal and Torres Strait Islander communities to decide their own local data priorities." ;
+    sdo:url "https://mspgh.unimelb.edu.au/centres-institutes/centre-for-health-equity/research-group/indigenous-data-network"^^xsd:anyURI ;
+.

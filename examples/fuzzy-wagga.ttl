@@ -1,0 +1,47 @@
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX geox: <http://example.com/geosparql1.3extension/>
+PREFIX geoxgr: <http://example.com/geosparql1.3extension/GeometryRoles/>
+PREFIX sdo: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+
+<http://example.com/feature/nicks-wagga>
+    a geo:Feature ;
+    geox:hasQualifiedGeometry
+        [
+            a geox:QualifiedGeometry ;
+            geox:confidence 0.95 ;
+            geox:hasGeometryRole geoxgr:BoundaryEstimate ;
+            geo:hasGeometry [
+                a geo:Geometry ;
+                geo:asWKT "POLYGON ((153.5777633 -28.1539109, 153.2042281 -27.2590735, 153.2042281 -26.4160277, 152.8526656 -26.632287, 152.6549117 -27.5321912, 152.6549117 -28.2120139, 153.2042281 -28.328125, 153.5777633 -28.1539109))"^^geo:asWKT ;
+            ] ;
+        ] ,
+        [
+            a geox:QualifiedGeometry ;
+            geox:confidence 0.5 ;
+            geox:hasGeometryRole geoxgr:BoundaryEstimate ;
+            geo:hasGeometry [
+                a geo:Geometry ;
+                geo:asWKT "POLYGON ((153.2042281 -25.646033, 153.4239547 -25.2094642, 153.2262008 -24.6914945, 152.8966109 -25.2492175, 152.3033492 -24.7114566, 148.9635055 -28.9836851, 150.1500289 -28.5213619, 151.358525 -29.0797442, 153.5777633 -28.1539109, 153.2042281 -25.646033))"^^geo:asWKT ;
+            ] ;
+        ] ,
+        [
+            a geox:QualifiedGeometry ;
+            geox:confidence 0.05 ;
+            geox:hasGeometryRole geoxgr:BoundaryEstimate ;
+            geo:hasGeometry [
+                a geo:Geometry ;
+                geo:asWKT "POLYGON ((153.5777633 -28.1539109, 153.4239547 -25.2094642, 153.2262008 -24.6914945, 149.0294234 -20.9250663, 145.8214156 -29.0221194, 148.9635055 -28.9836851, 150.1500289 -28.5213619, 151.358525 -29.0797442, 153.5777633 -28.1539109))"^^geo:asWKT ;
+            ] ;
+        ] ;
+    sdo:description "Where Nick thinks the area known as where South East Queensland is" ;
+    sdo:name "Nick's Estimation of South East Queensland" ;
+.
+
+geoxgr:BoundaryEstimate
+    a skos:Concept ;
+    skos:definition "A Boundary Estimate is the estimated boundary of a Feature. Boundary Estimates require a confidence value (0 - 1) or else they are assumed to have a confidence of 0.5 (50%)."@en ;
+    skos:prefLabel "Boundary Estimate"@en ;
+    skos:topConceptOf geox:GeometryRoles ;
+.

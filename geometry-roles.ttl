@@ -1,0 +1,7 @@
+PREFIX egor: <https://w3id.org/idn/def/ego/role/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+
+egor:BoundaryEstimate
+    a skos:Concept ;
+.
